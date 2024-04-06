@@ -84,18 +84,18 @@
 <NodeList>
 <SimpleNode Name="sinalVerdeCar">
 <PointGeometry>
-<Point X="224" Y="64"/>
+<Point X="224" Y="192"/>
 </PointGeometry>
 <LabelGeometry Anchor="NW">
-<Point X="-24" Y="-26"/>
+<Point X="-35" Y="8"/>
 </LabelGeometry>
 </SimpleNode>
 <SimpleNode Name="sinalAmareloCar">
 <PointGeometry>
-<Point X="304" Y="160"/>
+<Point X="320" Y="96"/>
 </PointGeometry>
 <LabelGeometry Anchor="NW">
-<Point X="18" Y="-12"/>
+<Point X="15" Y="-1"/>
 </LabelGeometry>
 </SimpleNode>
 <SimpleNode Initial="true" Name="sinalVermelhoCar">
@@ -103,10 +103,10 @@
 <SimpleIdentifier Name=":accepting"/>
 </EventList>
 <PointGeometry>
-<Point X="144" Y="160"/>
+<Point X="128" Y="96"/>
 </PointGeometry>
 <LabelGeometry Anchor="NW">
-<Point X="-99" Y="4"/>
+<Point X="-102" Y="0"/>
 </LabelGeometry>
 </SimpleNode>
 </NodeList>
@@ -115,34 +115,25 @@
 <LabelBlock>
 <SimpleIdentifier Name="tempVerdeExpirado_lo"/>
 <LabelGeometry Anchor="NW">
-<Point X="4" Y="-13"/>
+<Point X="8" Y="6"/>
 </LabelGeometry>
 </LabelBlock>
-<SplineGeometry>
-<Point X="273" Y="104"/>
-</SplineGeometry>
 </Edge>
 <Edge Source="sinalAmareloCar" Target="sinalVermelhoCar">
 <LabelBlock>
 <SimpleIdentifier Name="tempAmareloExpirado_lo"/>
 <LabelGeometry Anchor="NW">
-<Point X="-74" Y="7"/>
+<Point X="-71" Y="-22"/>
 </LabelGeometry>
 </LabelBlock>
-<SplineGeometry>
-<Point X="229" Y="178"/>
-</SplineGeometry>
 </Edge>
 <Edge Source="sinalVermelhoCar" Target="sinalVerdeCar">
 <LabelBlock>
 <SimpleIdentifier Name="tempVermelhoExpirado_lo"/>
 <LabelGeometry Anchor="NW">
-<Point X="-147" Y="-20"/>
+<Point X="-147" Y="5"/>
 </LabelGeometry>
 </LabelBlock>
-<SplineGeometry>
-<Point X="175" Y="101"/>
-</SplineGeometry>
 </Edge>
 </EdgeList>
 </Graph>
@@ -326,7 +317,7 @@
 <SimpleIdentifier Name=":accepting"/>
 </EventList>
 <PointGeometry>
-<Point X="96" Y="144"/>
+<Point X="80" Y="192"/>
 </PointGeometry>
 <LabelGeometry Anchor="NW">
 <Point X="-43" Y="8"/>
@@ -342,7 +333,7 @@
 </SimpleNode>
 <SimpleNode Name="verde">
 <PointGeometry>
-<Point X="288" Y="144"/>
+<Point X="304" Y="192"/>
 </PointGeometry>
 <LabelGeometry Anchor="NW">
 <Point X="0" Y="10"/>
@@ -354,44 +345,38 @@
 <LabelBlock>
 <SimpleIdentifier Name="botaoPressionado_lo"/>
 <LabelGeometry Anchor="NW">
-<Point X="-107" Y="-10"/>
+<Point X="-124" Y="-12"/>
 </LabelGeometry>
 </LabelBlock>
-<SplineGeometry>
-<Point X="136" Y="96"/>
-</SplineGeometry>
 </Edge>
 <Edge Source="espera" Target="verde">
 <LabelBlock>
 <SimpleIdentifier Name="tempSegurancaExpirado_lo"/>
 <LabelGeometry Anchor="NW">
-<Point X="-32" Y="-24"/>
+<Point X="12" Y="-10"/>
 </LabelGeometry>
 </LabelBlock>
-<SplineGeometry>
-<Point X="254" Y="100"/>
-</SplineGeometry>
 </Edge>
 <Edge Source="verde" Target="vermelho">
 <LabelBlock>
 <SimpleIdentifier Name="tempVermelhoExpirado_lo"/>
 <LabelGeometry Anchor="NW">
-<Point X="-63" Y="4"/>
+<Point X="-71" Y="4"/>
 </LabelGeometry>
 </LabelBlock>
 <SplineGeometry>
-<Point X="191" Y="193"/>
+<Point X="191" Y="249"/>
 </SplineGeometry>
 </Edge>
 <Edge Source="vermelho" Target="verde">
 <LabelBlock>
 <SimpleIdentifier Name="tempSegurancaExpirado_lo"/>
 <LabelGeometry Anchor="NW">
-<Point X="-68" Y="-23"/>
+<Point X="-78" Y="-21"/>
 </LabelGeometry>
 </LabelBlock>
 <SplineGeometry>
-<Point X="198" Y="141"/>
+<Point X="199" Y="179"/>
 </SplineGeometry>
 </Edge>
 </EdgeList>
@@ -415,6 +400,9 @@
 <PointGeometry>
 <Point X="16" Y="96"/>
 </PointGeometry>
+<InitialArrowGeometry>
+<Point X="10" Y="-19"/>
+</InitialArrowGeometry>
 <LabelGeometry Anchor="NW">
 <Point X="11" Y="-7"/>
 </LabelGeometry>
@@ -495,47 +483,99 @@
 <SimpleComponent Kind="PLANT" Name="botao_lo">
 <Graph>
 <NodeList>
-<SimpleNode Name="solicitacaoAtiva">
+<SimpleNode Name="solicitacaoIndisponivel">
 <PointGeometry>
-<Point X="464" Y="128"/>
+<Point X="-48" Y="112"/>
 </PointGeometry>
 <LabelGeometry Anchor="NW">
-<Point X="4" Y="2"/>
+<Point X="-126" Y="2"/>
 </LabelGeometry>
 </SimpleNode>
-<SimpleNode Initial="true" Name="solicitacaoInativa">
+<SimpleNode Initial="true" Name="solicitacaoDisponivel">
 <EventList>
 <SimpleIdentifier Name=":accepting"/>
 </EventList>
 <PointGeometry>
-<Point X="256" Y="128"/>
+<Point X="208" Y="112"/>
+</PointGeometry>
+<InitialArrowGeometry>
+<Point X="11" Y="-12"/>
+</InitialArrowGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="solicitacaoAtiva">
+<PointGeometry>
+<Point X="80" Y="240"/>
 </PointGeometry>
 <LabelGeometry Anchor="NW">
-<Point X="-92" Y="7"/>
+<Point X="12" Y="-5"/>
 </LabelGeometry>
 </SimpleNode>
 </NodeList>
 <EdgeList>
-<Edge Source="solicitacaoAtiva" Target="solicitacaoInativa">
+<Edge Source="solicitacaoIndisponivel" Target="solicitacaoDisponivel">
 <LabelBlock>
-<SimpleIdentifier Name="solicitacaoAtendida_lo"/>
+<SimpleIdentifier Name="tempVermelhoExpirado_lo"/>
 <LabelGeometry Anchor="NW">
-<Point X="-55" Y="5"/>
+<Point X="-69" Y="-23"/>
 </LabelGeometry>
 </LabelBlock>
 <SplineGeometry>
-<Point X="360" Y="163"/>
+<Point X="75" Y="85"/>
 </SplineGeometry>
 </Edge>
-<Edge Source="solicitacaoInativa" Target="solicitacaoAtiva">
+<Edge Source="solicitacaoDisponivel" Target="solicitacaoIndisponivel">
+<LabelBlock>
+<SimpleIdentifier Name="tempVerdeExpirado_lo"/>
+<LabelGeometry Anchor="NW">
+<Point X="-54" Y="4"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="72" Y="136"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="solicitacaoDisponivel" Target="solicitacaoAtiva">
 <LabelBlock>
 <SimpleIdentifier Name="botaoPressionado_lo"/>
 <LabelGeometry Anchor="NW">
-<Point X="-50" Y="-23"/>
+<Point X="5" Y="6"/>
+</LabelGeometry>
+</LabelBlock>
+</Edge>
+<Edge Source="solicitacaoAtiva" Target="solicitacaoAtiva">
+<LabelBlock>
+<SimpleIdentifier Name="tempVerdeExpirado_lo"/>
+<SimpleIdentifier Name="tempAmareloExpirado_lo"/>
+<LabelGeometry Anchor="NW">
+<Point X="-62" Y="4"/>
 </LabelGeometry>
 </LabelBlock>
 <SplineGeometry>
-<Point X="360" Y="93"/>
+<Point X="79" Y="284"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="solicitacaoAtiva" Target="solicitacaoIndisponivel">
+<LabelBlock>
+<SimpleIdentifier Name="tempSegurancaExpirado_lo"/>
+<LabelGeometry Anchor="NW">
+<Point X="-150" Y="7"/>
+</LabelGeometry>
+</LabelBlock>
+</Edge>
+<Edge Source="solicitacaoIndisponivel" Target="solicitacaoIndisponivel">
+<LabelBlock>
+<SimpleIdentifier Name="tempVerdeExpirado_ns"/>
+<SimpleIdentifier Name="tempSegurancaExpirado_lo"/>
+<SimpleIdentifier Name="tempAmareloExpirado_lo"/>
+<LabelGeometry Anchor="NW">
+<Point X="-68" Y="-51"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="-50" Y="63"/>
 </SplineGeometry>
 </Edge>
 </EdgeList>
@@ -585,7 +625,7 @@
 <LabelBlock>
 <SimpleIdentifier Name="tempVerdeExpirado_ns"/>
 <LabelGeometry Anchor="NW">
-<Point X="-69" Y="-36"/>
+<Point X="-69" Y="-21"/>
 </LabelGeometry>
 </LabelBlock>
 </Edge>
@@ -601,7 +641,7 @@
 <LabelBlock>
 <SimpleIdentifier Name="tempSegurancaExpirado_ns"/>
 <LabelGeometry Anchor="NW">
-<Point X="-77" Y="12"/>
+<Point X="-77" Y="5"/>
 </LabelGeometry>
 </LabelBlock>
 </Edge>
@@ -621,26 +661,26 @@
 <NodeList>
 <SimpleNode Name="tempVerde">
 <PointGeometry>
-<Point X="16" Y="160"/>
+<Point X="160" Y="96"/>
 </PointGeometry>
 <LabelGeometry Anchor="NW">
-<Point X="14" Y="-5"/>
+<Point X="10" Y="-9"/>
 </LabelGeometry>
 </SimpleNode>
 <SimpleNode Name="tempAmarelo">
 <PointGeometry>
-<Point X="112" Y="80"/>
+<Point X="160" Y="208"/>
 </PointGeometry>
 <LabelGeometry Anchor="NW">
-<Point X="-33" Y="-25"/>
+<Point X="11" Y="-8"/>
 </LabelGeometry>
 </SimpleNode>
 <SimpleNode Name="tempSeguranca">
 <PointGeometry>
-<Point X="208" Y="160"/>
+<Point X="-32" Y="208"/>
 </PointGeometry>
 <LabelGeometry Anchor="NW">
-<Point X="21" Y="-8"/>
+<Point X="-94" Y="-10"/>
 </LabelGeometry>
 </SimpleNode>
 <SimpleNode Initial="true" Name="tempVermelho">
@@ -648,10 +688,10 @@
 <SimpleIdentifier Name=":accepting"/>
 </EventList>
 <PointGeometry>
-<Point X="112" Y="240"/>
+<Point X="-32" Y="96"/>
 </PointGeometry>
 <LabelGeometry Anchor="NW">
-<Point X="0" Y="10"/>
+<Point X="-92" Y="-7"/>
 </LabelGeometry>
 </SimpleNode>
 </NodeList>
@@ -660,45 +700,33 @@
 <LabelBlock>
 <SimpleIdentifier Name="tempVerdeExpirado_lo"/>
 <LabelGeometry Anchor="NW">
-<Point X="-105" Y="-15"/>
+<Point X="5" Y="-11"/>
 </LabelGeometry>
 </LabelBlock>
-<SplineGeometry>
-<Point X="44" Y="106"/>
-</SplineGeometry>
 </Edge>
 <Edge Source="tempAmarelo" Target="tempSeguranca">
 <LabelBlock>
 <SimpleIdentifier Name="tempAmareloExpirado_lo"/>
 <LabelGeometry Anchor="NW">
-<Point X="8" Y="-16"/>
+<Point X="-68" Y="3"/>
 </LabelGeometry>
 </LabelBlock>
-<SplineGeometry>
-<Point X="182" Y="106"/>
-</SplineGeometry>
 </Edge>
 <Edge Source="tempSeguranca" Target="tempVermelho">
 <LabelBlock>
 <SimpleIdentifier Name="tempSegurancaExpirado_lo"/>
 <LabelGeometry Anchor="NW">
-<Point X="16" Y="-18"/>
+<Point X="-154" Y="-11"/>
 </LabelGeometry>
 </LabelBlock>
-<SplineGeometry>
-<Point X="184" Y="216"/>
-</SplineGeometry>
 </Edge>
 <Edge Source="tempVermelho" Target="tempVerde">
 <LabelBlock>
 <SimpleIdentifier Name="tempVermelhoExpirado_lo"/>
 <LabelGeometry Anchor="NW">
-<Point X="-138" Y="-2"/>
+<Point X="-77" Y="-21"/>
 </LabelGeometry>
 </LabelBlock>
-<SplineGeometry>
-<Point X="45" Y="218"/>
-</SplineGeometry>
 </Edge>
 </EdgeList>
 </Graph>
