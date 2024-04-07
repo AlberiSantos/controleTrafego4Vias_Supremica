@@ -1,4 +1,5 @@
 # Sistema de controle de tráfego para um cruzamento de quatro vias utilizando a ferramenta Supremica
+Este projeto aborda a necessidade de desenvolver um sistema de controle de tráfego eficiente para cruzamentos de quatro vias. Em áreas urbanas e suburbanas, cruzamentos deste tipo representam pontos críticos de interseção onde a gestão adequada do tráfego é vital para a segurança viária e a fluidez do tráfego. No entanto, esses cruzamentos enfrentam desafios específicos que podem resultar em congestionamentos, atrasos e, o mais importante, riscos à segurança dos usuários da via.
 
 ## Objetivos
 
