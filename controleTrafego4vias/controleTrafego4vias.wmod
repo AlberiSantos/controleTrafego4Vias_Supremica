@@ -144,6 +144,104 @@
 </EdgeList>
 </Graph>
 </SimpleComponent>
+<SimpleComponent Kind="PLANT" Name="detector_ns">
+<Graph>
+<NodeList>
+<SimpleNode Name="veiculoDetectado">
+<PointGeometry>
+<Point X="80" Y="96"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="3" Y="7"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Initial="true" Name="nenhumVeiculo">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="-176" Y="96"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="-74" Y="11"/>
+</LabelGeometry>
+</SimpleNode>
+</NodeList>
+<EdgeList>
+<Edge Source="veiculoDetectado" Target="nenhumVeiculo">
+<LabelBlock>
+<SimpleIdentifier Name="veiculoSai_ns"/>
+<LabelGeometry Anchor="NW">
+<Point X="-32" Y="-24"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="-48" Y="133"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="nenhumVeiculo" Target="veiculoDetectado">
+<LabelBlock>
+<SimpleIdentifier Name="veiculoChega_ns"/>
+<LabelGeometry Anchor="NW">
+<Point X="-40" Y="1"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="-48" Y="59"/>
+</SplineGeometry>
+</Edge>
+</EdgeList>
+</Graph>
+</SimpleComponent>
+<SimpleComponent Kind="PLANT" Name="detector_lo">
+<Graph>
+<NodeList>
+<SimpleNode Name="veiculoDetectado">
+<PointGeometry>
+<Point X="304" Y="176"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="8" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Initial="true" Name="nenhumVeiculo">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="48" Y="176"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="-85" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+</NodeList>
+<EdgeList>
+<Edge Source="veiculoDetectado" Target="nenhumVeiculo">
+<LabelBlock>
+<SimpleIdentifier Name="veiculoSai_lo"/>
+<LabelGeometry Anchor="NW">
+<Point X="-32" Y="-24"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="176" Y="213"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="nenhumVeiculo" Target="veiculoDetectado">
+<LabelBlock>
+<SimpleIdentifier Name="veiculoChega_lo"/>
+<LabelGeometry Anchor="NW">
+<Point X="-40" Y="1"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="176" Y="139"/>
+</SplineGeometry>
+</Edge>
+</EdgeList>
+</Graph>
+</SimpleComponent>
 <SimpleComponent Kind="PLANT" Name="pedestre_ns">
 <Graph>
 <NodeList>
@@ -700,6 +798,389 @@
 <SplineGeometry>
 <Point X="158" Y="152"/>
 </SplineGeometry>
+</Edge>
+</EdgeList>
+</Graph>
+</SimpleComponent>
+<SimpleComponent Kind="SPEC" Name="eficiencia">
+<Graph>
+<NodeList>
+<SimpleNode Initial="true" Name="eficiente">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="112" Y="160"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="-60" Y="-7"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="esperaExcessiva">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="208" Y="240"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="-46" Y="-26"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0">
+<PointGeometry>
+<Point X="304" Y="160"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+</NodeList>
+<EdgeList>
+<Edge Source="eficiente" Target="S0">
+<LabelBlock>
+<SimpleIdentifier Name="botaoPressionado_ns"/>
+<SimpleIdentifier Name="botaoPressionado_lo"/>
+<LabelGeometry Anchor="NW">
+<Point X="-59" Y="-39"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="209" Y="121"/>
+</SplineGeometry>
+<EndPointGeometry>
+<Point X="304" Y="160"/>
+</EndPointGeometry>
+</Edge>
+<Edge Source="esperaExcessiva" Target="eficiente">
+<LabelBlock>
+<SimpleIdentifier Name="solicitacaoAtendida_lo"/>
+<SimpleIdentifier Name="solicitacaoAtendida_ns"/>
+<LabelGeometry Anchor="NW">
+<Point X="-124" Y="2"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="148" Y="214"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0" Target="esperaExcessiva">
+<LabelBlock>
+<SimpleIdentifier Name="botaoPressionado_ns"/>
+<SimpleIdentifier Name="botaoPressionado_lo"/>
+<LabelGeometry Anchor="NW">
+<Point X="4" Y="1"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="268" Y="210"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S0" Target="eficiente">
+<LabelBlock>
+<SimpleIdentifier Name="solicitacaoAtendida_lo"/>
+<SimpleIdentifier Name="solicitacaoAtendida_ns"/>
+<LabelGeometry Anchor="NW">
+<Point X="-42" Y="6"/>
+</LabelGeometry>
+</LabelBlock>
+</Edge>
+<Edge Source="esperaExcessiva" Target="esperaExcessiva">
+<LabelBlock>
+<SimpleIdentifier Name="botaoPressionado_lo"/>
+<SimpleIdentifier Name="botaoPressionado_ns"/>
+</LabelBlock>
+<SplineGeometry>
+<Point X="203" Y="290"/>
+</SplineGeometry>
+</Edge>
+</EdgeList>
+</Graph>
+</SimpleComponent>
+<SimpleComponent Kind="SPEC" Name="prioridade">
+<Graph>
+<NodeList>
+<SimpleNode Initial="true" Name="normal">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="448" Y="304"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="-46" Y="-5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="pedestre">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="544" Y="240"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="emergencia">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="448" Y="432"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+</NodeList>
+<EdgeList>
+<Edge Source="normal" Target="pedestre">
+<LabelBlock>
+<SimpleIdentifier Name="botaoPressionado_ns"/>
+<SimpleIdentifier Name="botaoPressionado_lo"/>
+<LabelGeometry Anchor="NW">
+<Point X="-100" Y="-41"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="487" Y="259"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="pedestre" Target="normal">
+<LabelBlock>
+<SimpleIdentifier Name="solicitacaoAtendida_ns"/>
+<SimpleIdentifier Name="solicitacaoAtendida_lo"/>
+<LabelGeometry Anchor="NW">
+<Point X="18" Y="-14"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="505" Y="285"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="normal" Target="emergencia">
+<LabelBlock>
+<SimpleIdentifier Name="veiculoChega_ns"/>
+<SimpleIdentifier Name="veiculoChega_lo"/>
+</LabelBlock>
+<SplineGeometry>
+<Point X="466" Y="368"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="emergencia" Target="normal">
+<LabelBlock>
+<SimpleIdentifier Name="veiculoSai_lo"/>
+<SimpleIdentifier Name="veiculoSai_ns"/>
+<LabelGeometry Anchor="NW">
+<Point X="-82" Y="6"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="430" Y="368"/>
+</SplineGeometry>
+</Edge>
+</EdgeList>
+</Graph>
+</SimpleComponent>
+<SimpleComponent Kind="SPEC" Name="negaBotaoSeguido_lo">
+<Graph>
+<NodeList>
+<SimpleNode Initial="true" Name="S2">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="320" Y="208"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S1">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="208" Y="288"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="96" Y="208"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+</NodeList>
+<EdgeList>
+<Edge Source="S2" Target="S1">
+<LabelBlock>
+<SimpleIdentifier Name="botaoPressionado_lo"/>
+<LabelGeometry Anchor="NW">
+<Point X="18" Y="12"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="273" Y="261"/>
+</SplineGeometry>
+<EndPointGeometry>
+<Point X="208" Y="288"/>
+</EndPointGeometry>
+</Edge>
+<Edge Source="S1" Target="S0">
+<LabelBlock>
+<SimpleIdentifier Name="tempVermelhoExpirado_lo"/>
+<LabelGeometry Anchor="NW">
+<Point X="-148" Y="19"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="144" Y="256"/>
+</SplineGeometry>
+<EndPointGeometry>
+<Point X="96" Y="208"/>
+</EndPointGeometry>
+</Edge>
+<Edge Source="S1" Target="S1">
+<LabelBlock>
+<SimpleIdentifier Name="tempVerdeExpirado_lo"/>
+<SimpleIdentifier Name="tempAmareloExpirado_lo"/>
+<SimpleIdentifier Name="tempSegurancaExpirado_lo"/>
+</LabelBlock>
+<SplineGeometry>
+<Point X="210" Y="356"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S2" Target="S2">
+<LabelBlock>
+<SimpleIdentifier Name="tempVermelhoExpirado_lo"/>
+<SimpleIdentifier Name="tempSegurancaExpirado_lo"/>
+<SimpleIdentifier Name="tempAmareloExpirado_lo"/>
+<SimpleIdentifier Name="tempVerdeExpirado_lo"/>
+</LabelBlock>
+</Edge>
+<Edge Source="S0" Target="S2">
+<LabelBlock>
+<SimpleIdentifier Name="tempVerdeExpirado_lo"/>
+<LabelGeometry Anchor="NW">
+<Point X="-66" Y="-47"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="208" Y="188"/>
+</SplineGeometry>
+<EndPointGeometry>
+<Point X="320" Y="208"/>
+</EndPointGeometry>
+</Edge>
+</EdgeList>
+</Graph>
+</SimpleComponent>
+<SimpleComponent Kind="SPEC" Name="negaBotaoSeguido_ns">
+<Graph>
+<NodeList>
+<SimpleNode Initial="true" Name="S2">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="320" Y="208"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S1">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="208" Y="288"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S0">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="96" Y="208"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+</NodeList>
+<EdgeList>
+<Edge Source="S2" Target="S1">
+<LabelBlock>
+<SimpleIdentifier Name="botaoPressionado_ns"/>
+<LabelGeometry Anchor="NW">
+<Point X="18" Y="12"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="273" Y="261"/>
+</SplineGeometry>
+<EndPointGeometry>
+<Point X="208" Y="288"/>
+</EndPointGeometry>
+</Edge>
+<Edge Source="S1" Target="S0">
+<LabelBlock>
+<SimpleIdentifier Name="tempVermelhoExpirado_ns"/>
+<LabelGeometry Anchor="NW">
+<Point X="-148" Y="19"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="144" Y="256"/>
+</SplineGeometry>
+<EndPointGeometry>
+<Point X="96" Y="208"/>
+</EndPointGeometry>
+</Edge>
+<Edge Source="S1" Target="S1">
+<LabelBlock>
+<SimpleIdentifier Name="tempVerdeExpirado_ns"/>
+<SimpleIdentifier Name="tempAmareloExpirado_ns"/>
+<SimpleIdentifier Name="tempSegurancaExpirado_ns"/>
+</LabelBlock>
+<SplineGeometry>
+<Point X="210" Y="356"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S2" Target="S2">
+<LabelBlock>
+<SimpleIdentifier Name="tempVerdeExpirado_ns"/>
+<SimpleIdentifier Name="tempAmareloExpirado_ns"/>
+<SimpleIdentifier Name="tempSegurancaExpirado_ns"/>
+<SimpleIdentifier Name="tempVermelhoExpirado_ns"/>
+</LabelBlock>
+</Edge>
+<Edge Source="S0" Target="S2">
+<LabelBlock>
+<SimpleIdentifier Name="tempVerdeExpirado_ns"/>
+<LabelGeometry Anchor="NW">
+<Point X="-66" Y="-47"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="208" Y="188"/>
+</SplineGeometry>
+<EndPointGeometry>
+<Point X="320" Y="208"/>
+</EndPointGeometry>
 </Edge>
 </EdgeList>
 </Graph>
