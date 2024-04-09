@@ -6,19 +6,12 @@
 <EventDecl Kind="CONTROLLABLE" Name="tempVermelhoExpirado_ns"/>
 <EventDecl Kind="PROPOSITION" Name=":accepting"/>
 <EventDecl Kind="CONTROLLABLE" Name="tempSegurancaExpirado_ns"/>
-<EventDecl Kind="UNCONTROLLABLE" Name="veiculoChega_ns"/>
-<EventDecl Kind="UNCONTROLLABLE" Name="veiculoSai_ns"/>
 <EventDecl Kind="UNCONTROLLABLE" Name="botaoPressionado_ns"/>
-<EventDecl Kind="CONTROLLABLE" Name="solicitacaoAtendida_ns"/>
 <EventDecl Kind="UNCONTROLLABLE" Name="botaoPressionado_lo"/>
-<EventDecl Kind="CONTROLLABLE" Name="solicitacaoAtendida_lo"/>
 <EventDecl Kind="CONTROLLABLE" Name="tempAmareloExpirado_lo"/>
 <EventDecl Kind="CONTROLLABLE" Name="tempSegurancaExpirado_lo"/>
 <EventDecl Kind="CONTROLLABLE" Name="tempVerdeExpirado_lo"/>
 <EventDecl Kind="CONTROLLABLE" Name="tempVermelhoExpirado_lo"/>
-<EventDecl Kind="UNCONTROLLABLE" Name="veiculoChega_lo"/>
-<EventDecl Kind="UNCONTROLLABLE" Name="veiculoSai_lo"/>
-<EventDecl Kind="PROPOSITION" Name=":forbidden"/>
 </EventDeclList>
 <ComponentList>
 <SimpleComponent Kind="PLANT" Name="semaforo_ns">
@@ -91,6 +84,9 @@
 <PointGeometry>
 <Point X="416" Y="160"/>
 </PointGeometry>
+<InitialArrowGeometry>
+<Point X="-36" Y="-1"/>
+</InitialArrowGeometry>
 <LabelGeometry Anchor="NW">
 <Point X="12" Y="-8"/>
 </LabelGeometry>
@@ -158,7 +154,7 @@
 <SimpleIdentifier Name="tempVerdeExpirado_ns"/>
 <SimpleIdentifier Name="botaoPressionado_ns"/>
 <LabelGeometry Anchor="NW">
-<Point X="-138" Y="-16"/>
+<Point X="-138" Y="-20"/>
 </LabelGeometry>
 </LabelBlock>
 </Edge>
@@ -431,80 +427,6 @@
 </EdgeList>
 </Graph>
 </SimpleComponent>
-<SimpleComponent Kind="SPEC" Name="seguranca">
-<Graph>
-<NodeList>
-<SimpleNode Initial="true" Name="S0">
-<EventList>
-<SimpleIdentifier Name=":accepting"/>
-</EventList>
-<PointGeometry>
-<Point X="96" Y="128"/>
-</PointGeometry>
-<LabelGeometry Anchor="NW">
-<Point X="-21" Y="4"/>
-</LabelGeometry>
-</SimpleNode>
-<SimpleNode Name="S1">
-<EventList>
-<SimpleIdentifier Name=":accepting"/>
-</EventList>
-<PointGeometry>
-<Point X="240" Y="128"/>
-</PointGeometry>
-<LabelGeometry Anchor="NW">
-<Point X="6" Y="3"/>
-</LabelGeometry>
-</SimpleNode>
-<SimpleNode Name="S2">
-<PointGeometry>
-<Point X="160" Y="176"/>
-</PointGeometry>
-<LabelGeometry Anchor="NW">
-<Point X="0" Y="10"/>
-</LabelGeometry>
-</SimpleNode>
-</NodeList>
-<EdgeList>
-<Edge Source="S0" Target="S1">
-<LabelBlock>
-<SimpleIdentifier Name="botaoPressionado_lo"/>
-<LabelGeometry Anchor="NW">
-<Point X="-54" Y="-24"/>
-</LabelGeometry>
-</LabelBlock>
-<SplineGeometry>
-<Point X="168" Y="110"/>
-</SplineGeometry>
-</Edge>
-<Edge Source="S1" Target="S2">
-<LabelBlock>
-<SimpleIdentifier Name="tempAmareloExpirado_lo"/>
-<LabelGeometry Anchor="NW">
-<Point X="2" Y="3"/>
-</LabelGeometry>
-</LabelBlock>
-<SplineGeometry>
-<Point X="208" Y="158"/>
-</SplineGeometry>
-<EndPointGeometry>
-<Point X="160" Y="176"/>
-</EndPointGeometry>
-</Edge>
-<Edge Source="S2" Target="S0">
-<LabelBlock>
-<SimpleIdentifier Name="tempAmareloExpirado_lo"/>
-<LabelGeometry Anchor="NW">
-<Point X="-131" Y="7"/>
-</LabelGeometry>
-</LabelBlock>
-<SplineGeometry>
-<Point X="121" Y="155"/>
-</SplineGeometry>
-</Edge>
-</EdgeList>
-</Graph>
-</SimpleComponent>
 <SimpleComponent Kind="SUPERVISOR" Name="sup(pedestre_lo||pedestre_ns||semaforo_lo||semaforo_ns||temporizador)">
 <Graph>
 <NodeList>
@@ -561,7 +483,7 @@
 </SimpleNode>
 <SimpleNode Name="q3">
 <PointGeometry>
-<Point X="61" Y="111"/>
+<Point X="80" Y="112"/>
 </PointGeometry>
 <LabelGeometry Anchor="NW">
 <Point X="5" Y="5"/>
@@ -572,7 +494,7 @@
 <Point X="152" Y="136"/>
 </PointGeometry>
 <LabelGeometry Anchor="NW">
-<Point X="5" Y="5"/>
+<Point X="6" Y="2"/>
 </LabelGeometry>
 </SimpleNode>
 <SimpleNode Name="q5">
@@ -617,7 +539,7 @@
 </LabelGeometry>
 </LabelBlock>
 <SplineGeometry>
-<Point X="60" Y="139"/>
+<Point X="71" Y="137"/>
 </SplineGeometry>
 </Edge>
 <Edge Source="q0" Target="q7">
@@ -705,7 +627,7 @@
 </LabelGeometry>
 </LabelBlock>
 <SplineGeometry>
-<Point X="103" Y="118"/>
+<Point X="113" Y="119"/>
 </SplineGeometry>
 </Edge>
 <Edge Source="q4" Target="q5">
