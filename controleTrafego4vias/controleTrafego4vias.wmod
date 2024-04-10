@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="windows-1252"?>
 <Module xmlns="http://waters.sourceforge.net/xsd/module" xmlns:B="http://waters.sourceforge.net/xsd/base" Name="projeto">
 <EventDeclList>
-<EventDecl Kind="CONTROLLABLE" Name="tempVerdeExpirado_ns"/>
-<EventDecl Kind="CONTROLLABLE" Name="tempAmareloExpirado_ns"/>
-<EventDecl Kind="CONTROLLABLE" Name="tempVermelhoExpirado_ns"/>
+<EventDecl Kind="CONTROLLABLE" Name="tGE_ns"/>
+<EventDecl Kind="CONTROLLABLE" Name="tYE_ns"/>
+<EventDecl Kind="CONTROLLABLE" Name="tRE_ns"/>
 <EventDecl Kind="PROPOSITION" Name=":accepting"/>
-<EventDecl Kind="CONTROLLABLE" Name="tempSegurancaExpirado_ns"/>
-<EventDecl Kind="UNCONTROLLABLE" Name="botaoPressionado_ns"/>
-<EventDecl Kind="UNCONTROLLABLE" Name="botaoPressionado_lo"/>
-<EventDecl Kind="CONTROLLABLE" Name="tempAmareloExpirado_lo"/>
-<EventDecl Kind="CONTROLLABLE" Name="tempSegurancaExpirado_lo"/>
-<EventDecl Kind="CONTROLLABLE" Name="tempVerdeExpirado_lo"/>
-<EventDecl Kind="CONTROLLABLE" Name="tempVermelhoExpirado_lo"/>
+<EventDecl Kind="CONTROLLABLE" Name="tSE_ns"/>
+<EventDecl Kind="UNCONTROLLABLE" Name="bP_ns"/>
+<EventDecl Kind="UNCONTROLLABLE" Name="bP_lo"/>
+<EventDecl Kind="CONTROLLABLE" Name="tYE_lo"/>
+<EventDecl Kind="CONTROLLABLE" Name="tSE_lo"/>
+<EventDecl Kind="CONTROLLABLE" Name="tGE_lo"/>
+<EventDecl Kind="CONTROLLABLE" Name="tRE_lo"/>
 </EventDeclList>
 <ComponentList>
 <SimpleComponent Kind="PLANT" Name="semaforo_ns">
@@ -48,26 +48,29 @@
 <EdgeList>
 <Edge Source="sinalVerdeCar" Target="sinalAmareloCar">
 <LabelBlock>
-<SimpleIdentifier Name="botaoPressionado_ns"/>
-<SimpleIdentifier Name="tempVerdeExpirado_ns"/>
+<SimpleIdentifier Name="tGE_ns"/>
+<SimpleIdentifier Name="bP_ns"/>
 <LabelGeometry Anchor="NW">
-<Point X="-65" Y="-38"/>
+<Point X="-23" Y="-35"/>
 </LabelGeometry>
 </LabelBlock>
+<SplineGeometry>
+<Point X="208" Y="43"/>
+</SplineGeometry>
 </Edge>
 <Edge Source="sinalAmareloCar" Target="sinalVermelhoCar">
 <LabelBlock>
-<SimpleIdentifier Name="tempAmareloExpirado_ns"/>
+<SimpleIdentifier Name="tYE_ns"/>
 <LabelGeometry Anchor="NW">
-<Point X="13" Y="-8"/>
+<Point X="13" Y="-3"/>
 </LabelGeometry>
 </LabelBlock>
 </Edge>
 <Edge Source="sinalVermelhoCar" Target="sinalVerdeCar">
 <LabelBlock>
-<SimpleIdentifier Name="tempVermelhoExpirado_lo"/>
+<SimpleIdentifier Name="tRE_lo"/>
 <LabelGeometry Anchor="NW">
-<Point X="-154" Y="-2"/>
+<Point X="-57" Y="-3"/>
 </LabelGeometry>
 </LabelBlock>
 </Edge>
@@ -85,10 +88,10 @@
 <Point X="416" Y="160"/>
 </PointGeometry>
 <InitialArrowGeometry>
-<Point X="-36" Y="-1"/>
+<Point X="-23" Y="-5"/>
 </InitialArrowGeometry>
 <LabelGeometry Anchor="NW">
-<Point X="12" Y="-8"/>
+<Point X="-81" Y="1"/>
 </LabelGeometry>
 </SimpleNode>
 <SimpleNode Name="tempAmarelo_ns">
@@ -96,7 +99,7 @@
 <Point X="432" Y="64"/>
 </PointGeometry>
 <LabelGeometry Anchor="NW">
-<Point X="13" Y="-4"/>
+<Point X="-97" Y="-23"/>
 </LabelGeometry>
 </SimpleNode>
 <SimpleNode Name="tempSeguranca_ns">
@@ -144,77 +147,178 @@
 <Point X="432" Y="256"/>
 </PointGeometry>
 <LabelGeometry Anchor="NW">
-<Point X="12" Y="-17"/>
+<Point X="-101" Y="-1"/>
 </LabelGeometry>
 </SimpleNode>
 </NodeList>
 <EdgeList>
 <Edge Source="tempVerd_ns" Target="tempAmarelo_ns">
 <LabelBlock>
-<SimpleIdentifier Name="tempVerdeExpirado_ns"/>
-<SimpleIdentifier Name="botaoPressionado_ns"/>
+<SimpleIdentifier Name="tGE_ns"/>
 <LabelGeometry Anchor="NW">
-<Point X="-138" Y="-20"/>
+<Point X="-56" Y="-26"/>
 </LabelGeometry>
 </LabelBlock>
+<SplineGeometry>
+<Point X="393" Y="109"/>
+</SplineGeometry>
+<GuardActionBlock>
+<Actions>
+<BinaryExpression Operator="=" Text="cicloCompleto_ns = 1">
+<SimpleIdentifier Name="cicloCompleto_ns"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+</Actions>
+<LabelGeometry Anchor="NW">
+<Point X="-124" Y="-8"/>
+</LabelGeometry>
+</GuardActionBlock>
 </Edge>
 <Edge Source="tempAmarelo_ns" Target="tempSeguranca_ns">
 <LabelBlock>
-<SimpleIdentifier Name="tempAmareloExpirado_ns"/>
+<SimpleIdentifier Name="tYE_ns"/>
 <LabelGeometry Anchor="NW">
-<Point X="-137" Y="-26"/>
+<Point X="-58" Y="-20"/>
 </LabelGeometry>
 </LabelBlock>
 </Edge>
 <Edge Source="tempSeguranca_ns" Target="tempVermelho_ns">
 <LabelBlock>
-<SimpleIdentifier Name="tempSegurancaExpirado_ns"/>
+<SimpleIdentifier Name="tSE_ns"/>
 <LabelGeometry Anchor="NW">
-<Point X="1" Y="-24"/>
+<Point X="3" Y="-24"/>
 </LabelGeometry>
 </LabelBlock>
 </Edge>
 <Edge Source="tempVermelho_ns" Target="tempVerde_lo">
 <LabelBlock>
-<SimpleIdentifier Name="tempVermelhoExpirado_ns"/>
+<SimpleIdentifier Name="tRE_ns"/>
 <LabelGeometry Anchor="NW">
-<Point X="10" Y="-5"/>
+<Point X="11" Y="-6"/>
 </LabelGeometry>
 </LabelBlock>
 </Edge>
 <Edge Source="tempVerde_lo" Target="tempAmarelo_lo">
 <LabelBlock>
-<SimpleIdentifier Name="tempVerdeExpirado_lo"/>
-<SimpleIdentifier Name="botaoPressionado_lo"/>
+<SimpleIdentifier Name="tGE_lo"/>
 <LabelGeometry Anchor="NW">
-<Point X="3" Y="2"/>
+<Point X="13" Y="-30"/>
 </LabelGeometry>
 </LabelBlock>
+<SplineGeometry>
+<Point X="712" Y="211"/>
+</SplineGeometry>
+<GuardActionBlock>
+<Actions>
+<BinaryExpression Operator="=" Text="cicloCompleto_lo = 1">
+<SimpleIdentifier Name="cicloCompleto_lo"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+</Actions>
+<LabelGeometry Anchor="NW">
+<Point X="13" Y="-15"/>
+</LabelGeometry>
+</GuardActionBlock>
 </Edge>
 <Edge Source="tempAmarelo_lo" Target="tempSeguranca_lo">
 <LabelBlock>
-<SimpleIdentifier Name="tempAmareloExpirado_lo"/>
+<SimpleIdentifier Name="tYE_lo"/>
+<LabelGeometry Anchor="NW">
+<Point X="11" Y="3"/>
+</LabelGeometry>
 </LabelBlock>
 </Edge>
 <Edge Source="tempSeguranca_lo" Target="tempVermlho_lo">
 <LabelBlock>
-<SimpleIdentifier Name="tempSegurancaExpirado_lo"/>
+<SimpleIdentifier Name="tSE_lo"/>
 <LabelGeometry Anchor="NW">
-<Point X="-150" Y="8"/>
+<Point X="-52" Y="0"/>
 </LabelGeometry>
 </LabelBlock>
 </Edge>
 <Edge Source="tempVermlho_lo" Target="tempVerd_ns">
 <LabelBlock>
-<SimpleIdentifier Name="tempVermelhoExpirado_lo"/>
+<SimpleIdentifier Name="tRE_lo"/>
 <LabelGeometry Anchor="NW">
-<Point X="-156" Y="-5"/>
+<Point X="-55" Y="-11"/>
 </LabelGeometry>
 </LabelBlock>
+</Edge>
+<Edge Source="tempVerd_ns" Target="tempAmarelo_ns">
+<LabelBlock>
+<SimpleIdentifier Name="bP_ns"/>
+<LabelGeometry Anchor="NW">
+<Point X="3" Y="-16"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="455" Y="115"/>
+</SplineGeometry>
+<GuardActionBlock>
+<Guards>
+<BinaryExpression Operator="==" Text="cicloCompleto_ns == 1">
+<SimpleIdentifier Name="cicloCompleto_ns"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+</Guards>
+<Actions>
+<BinaryExpression Operator="=" Text="cicloCompleto_ns = 0">
+<SimpleIdentifier Name="cicloCompleto_ns"/>
+<IntConstant Value="0"/>
+</BinaryExpression>
+</Actions>
+<LabelGeometry Anchor="NW">
+<Point X="2" Y="-1"/>
+</LabelGeometry>
+</GuardActionBlock>
+</Edge>
+<Edge Source="tempVerde_lo" Target="tempAmarelo_lo">
+<LabelBlock>
+<SimpleIdentifier Name="bP_lo"/>
+<LabelGeometry Anchor="NW">
+<Point X="-133" Y="-28"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="680" Y="205"/>
+</SplineGeometry>
+<GuardActionBlock>
+<Guards>
+<BinaryExpression Operator="==" Text="cicloCompleto_lo == 1">
+<SimpleIdentifier Name="cicloCompleto_lo"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+</Guards>
+<Actions>
+<BinaryExpression Operator="=" Text="cicloCompleto_lo = 0">
+<SimpleIdentifier Name="cicloCompleto_lo"/>
+<IntConstant Value="0"/>
+</BinaryExpression>
+</Actions>
+<LabelGeometry Anchor="NW">
+<Point X="-132" Y="-11"/>
+</LabelGeometry>
+</GuardActionBlock>
 </Edge>
 </EdgeList>
 </Graph>
 </SimpleComponent>
+<VariableComponent Name="cicloCompleto_ns">
+<VariableRange><BinaryExpression Operator="..">
+<IntConstant Value="0"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+</VariableRange>
+<VariableInitial><BinaryExpression Operator="==">
+<SimpleIdentifier Name="cicloCompleto_ns"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+</VariableInitial>
+<VariableMarking>
+<SimpleIdentifier Name=":accepting"/>
+<IntConstant Value="1"/>
+</VariableMarking>
+</VariableComponent>
 <SimpleComponent Kind="PLANT" Name="semaforo_lo">
 <Graph>
 <NodeList>
@@ -252,26 +356,26 @@
 <EdgeList>
 <Edge Source="sinalVerdeCar" Target="sinalAmareloCar">
 <LabelBlock>
-<SimpleIdentifier Name="tempVerdeExpirado_lo"/>
-<SimpleIdentifier Name="botaoPressionado_lo"/>
+<SimpleIdentifier Name="tGE_lo"/>
+<SimpleIdentifier Name="bP_lo"/>
 <LabelGeometry Anchor="NW">
-<Point X="-62" Y="-40"/>
+<Point X="-22" Y="-38"/>
 </LabelGeometry>
 </LabelBlock>
 </Edge>
 <Edge Source="sinalAmareloCar" Target="sinalVermelhoCar">
 <LabelBlock>
-<SimpleIdentifier Name="tempAmareloExpirado_lo"/>
+<SimpleIdentifier Name="tYE_lo"/>
 <LabelGeometry Anchor="NW">
-<Point X="15" Y="-5"/>
+<Point X="15" Y="-3"/>
 </LabelGeometry>
 </LabelBlock>
 </Edge>
 <Edge Source="sinalVermelhoCar" Target="sinalVerdeCar">
 <LabelBlock>
-<SimpleIdentifier Name="tempVermelhoExpirado_ns"/>
+<SimpleIdentifier Name="tRE_ns"/>
 <LabelGeometry Anchor="NW">
-<Point X="-164" Y="-9"/>
+<Point X="-54" Y="-5"/>
 </LabelGeometry>
 </LabelBlock>
 </Edge>
@@ -312,15 +416,15 @@
 <EdgeList>
 <Edge Source="vermelho" Target="espera">
 <LabelBlock>
-<SimpleIdentifier Name="botaoPressionado_ns"/>
+<SimpleIdentifier Name="bP_ns"/>
 <LabelGeometry Anchor="NW">
-<Point X="-123" Y="-20"/>
+<Point X="-45" Y="-18"/>
 </LabelGeometry>
 </LabelBlock>
 </Edge>
 <Edge Source="espera" Target="verde">
 <LabelBlock>
-<SimpleIdentifier Name="tempSegurancaExpirado_ns"/>
+<SimpleIdentifier Name="tSE_ns"/>
 <LabelGeometry Anchor="NW">
 <Point X="3" Y="-18"/>
 </LabelGeometry>
@@ -328,9 +432,9 @@
 </Edge>
 <Edge Source="verde" Target="vermelho">
 <LabelBlock>
-<SimpleIdentifier Name="tempVermelhoExpirado_lo"/>
+<SimpleIdentifier Name="tRE_lo"/>
 <LabelGeometry Anchor="NW">
-<Point X="-69" Y="3"/>
+<Point X="-17" Y="8"/>
 </LabelGeometry>
 </LabelBlock>
 <SplineGeometry>
@@ -339,9 +443,9 @@
 </Edge>
 <Edge Source="vermelho" Target="verde">
 <LabelBlock>
-<SimpleIdentifier Name="tempSegurancaExpirado_ns"/>
+<SimpleIdentifier Name="tSE_ns"/>
 <LabelGeometry Anchor="NW">
-<Point X="-76" Y="14"/>
+<Point X="-19" Y="9"/>
 </LabelGeometry>
 </LabelBlock>
 <SplineGeometry>
@@ -388,15 +492,15 @@
 <EdgeList>
 <Edge Source="vermelho" Target="espera">
 <LabelBlock>
-<SimpleIdentifier Name="botaoPressionado_lo"/>
+<SimpleIdentifier Name="bP_lo"/>
 <LabelGeometry Anchor="NW">
-<Point X="-124" Y="-12"/>
+<Point X="-55" Y="-13"/>
 </LabelGeometry>
 </LabelBlock>
 </Edge>
 <Edge Source="espera" Target="verde">
 <LabelBlock>
-<SimpleIdentifier Name="tempSegurancaExpirado_lo"/>
+<SimpleIdentifier Name="tSE_lo"/>
 <LabelGeometry Anchor="NW">
 <Point X="12" Y="-10"/>
 </LabelGeometry>
@@ -404,9 +508,9 @@
 </Edge>
 <Edge Source="verde" Target="vermelho">
 <LabelBlock>
-<SimpleIdentifier Name="tempVermelhoExpirado_ns"/>
+<SimpleIdentifier Name="tRE_ns"/>
 <LabelGeometry Anchor="NW">
-<Point X="-71" Y="4"/>
+<Point X="-21" Y="6"/>
 </LabelGeometry>
 </LabelBlock>
 <SplineGeometry>
@@ -415,9 +519,9 @@
 </Edge>
 <Edge Source="vermelho" Target="verde">
 <LabelBlock>
-<SimpleIdentifier Name="tempSegurancaExpirado_lo"/>
+<SimpleIdentifier Name="tSE_lo"/>
 <LabelGeometry Anchor="NW">
-<Point X="-78" Y="-21"/>
+<Point X="-28" Y="-22"/>
 </LabelGeometry>
 </LabelBlock>
 <SplineGeometry>
@@ -427,7 +531,23 @@
 </EdgeList>
 </Graph>
 </SimpleComponent>
-<SimpleComponent Kind="SUPERVISOR" Name="sup(pedestre_lo||pedestre_ns||semaforo_lo||semaforo_ns||temporizador)">
+<VariableComponent Name="cicloCompleto_lo">
+<VariableRange><BinaryExpression Operator="..">
+<IntConstant Value="0"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+</VariableRange>
+<VariableInitial><BinaryExpression Operator="==" Text="cicloCompleto_lo == 1">
+<SimpleIdentifier Name="cicloCompleto_lo"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+</VariableInitial>
+<VariableMarking>
+<SimpleIdentifier Name=":accepting"/>
+<IntConstant Value="1"/>
+</VariableMarking>
+</VariableComponent>
+<SimpleComponent Kind="SUPERVISOR" Name="sup(cicloCompleto_lo||cicloCompleto_ns||pedestre_lo||pedestre_ns||semaforo_lo||semaforo_ns||temporizador)">
 <Graph>
 <NodeList>
 <SimpleNode Initial="true" Name="q0">
@@ -435,15 +555,18 @@
 <SimpleIdentifier Name=":accepting"/>
 </EventList>
 <PointGeometry>
-<Point X="75" Y="172"/>
+<Point X="64" Y="208"/>
 </PointGeometry>
+<InitialArrowGeometry>
+<Point X="-22" Y="-5"/>
+</InitialArrowGeometry>
 <LabelGeometry Anchor="NW">
 <Point X="5" Y="5"/>
 </LabelGeometry>
 </SimpleNode>
 <SimpleNode Name="q1">
 <PointGeometry>
-<Point X="268" Y="408"/>
+<Point X="432" Y="576"/>
 </PointGeometry>
 <LabelGeometry Anchor="NW">
 <Point X="5" Y="5"/>
@@ -451,7 +574,7 @@
 </SimpleNode>
 <SimpleNode Name="q10">
 <PointGeometry>
-<Point X="126" Y="416"/>
+<Point X="528" Y="160"/>
 </PointGeometry>
 <LabelGeometry Anchor="NW">
 <Point X="5" Y="5"/>
@@ -459,15 +582,74 @@
 </SimpleNode>
 <SimpleNode Name="q11">
 <PointGeometry>
-<Point X="231" Y="331"/>
+<Point X="624" Y="176"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="18" Y="-1"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="q12">
+<PointGeometry>
+<Point X="656" Y="96"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="11" Y="-6"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="q13">
+<PointGeometry>
+<Point X="640" Y="384"/>
 </PointGeometry>
 <LabelGeometry Anchor="NW">
 <Point X="5" Y="5"/>
 </LabelGeometry>
 </SimpleNode>
-<SimpleNode Name="q12">
+<SimpleNode Name="q14">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
 <PointGeometry>
-<Point X="53" Y="407"/>
+<Point X="720" Y="384"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="q15">
+<PointGeometry>
+<Point X="640" Y="288"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="14" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="q16">
+<PointGeometry>
+<Point X="480" Y="48"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="q17">
+<PointGeometry>
+<Point X="96" Y="336"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="q18">
+<PointGeometry>
+<Point X="144" Y="464"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="13" Y="-12"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="q19">
+<PointGeometry>
+<Point X="240" Y="560"/>
 </PointGeometry>
 <LabelGeometry Anchor="NW">
 <Point X="5" Y="5"/>
@@ -475,7 +657,82 @@
 </SimpleNode>
 <SimpleNode Name="q2">
 <PointGeometry>
-<Point X="195" Y="414"/>
+<Point X="496" Y="544"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="q20">
+<PointGeometry>
+<Point X="128" Y="592"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="11" Y="-14"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="q21">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="64" Y="496"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="q22">
+<PointGeometry>
+<Point X="368" Y="688"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="q23">
+<PointGeometry>
+<Point X="368" Y="608"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="q24">
+<PointGeometry>
+<Point X="240" Y="672"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="6" Y="-25"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="q25">
+<PointGeometry>
+<Point X="240" Y="112"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="q26">
+<PointGeometry>
+<Point X="128" Y="128"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="q27">
+<PointGeometry>
+<Point X="32" Y="384"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="q29">
+<PointGeometry>
+<Point X="128" Y="208"/>
 </PointGeometry>
 <LabelGeometry Anchor="NW">
 <Point X="5" Y="5"/>
@@ -483,7 +740,31 @@
 </SimpleNode>
 <SimpleNode Name="q3">
 <PointGeometry>
-<Point X="80" Y="112"/>
+<Point X="688" Y="496"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="q30">
+<PointGeometry>
+<Point X="368" Y="16"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="q31">
+<PointGeometry>
+<Point X="368" Y="80"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="q32">
+<PointGeometry>
+<Point X="208" Y="64"/>
 </PointGeometry>
 <LabelGeometry Anchor="NW">
 <Point X="5" Y="5"/>
@@ -491,15 +772,15 @@
 </SimpleNode>
 <SimpleNode Name="q4">
 <PointGeometry>
-<Point X="152" Y="136"/>
+<Point X="624" Y="576"/>
 </PointGeometry>
 <LabelGeometry Anchor="NW">
-<Point X="6" Y="2"/>
+<Point X="5" Y="5"/>
 </LabelGeometry>
 </SimpleNode>
 <SimpleNode Name="q5">
 <PointGeometry>
-<Point X="235" Y="182"/>
+<Point X="544" Y="640"/>
 </PointGeometry>
 <LabelGeometry Anchor="NW">
 <Point X="5" Y="5"/>
@@ -507,15 +788,26 @@
 </SimpleNode>
 <SimpleNode Name="q6">
 <PointGeometry>
-<Point X="87" Y="328"/>
+<Point X="560" Y="496"/>
 </PointGeometry>
 <LabelGeometry Anchor="NW">
 <Point X="5" Y="5"/>
 </LabelGeometry>
 </SimpleNode>
 <SimpleNode Name="q7">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
 <PointGeometry>
-<Point X="156" Y="63"/>
+<Point X="608" Y="448"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="5"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="q8">
+<PointGeometry>
+<Point X="464" Y="672"/>
 </PointGeometry>
 <LabelGeometry Anchor="NW">
 <Point X="5" Y="5"/>
@@ -523,166 +815,399 @@
 </SimpleNode>
 <SimpleNode Name="q9">
 <PointGeometry>
-<Point X="241" Y="80"/>
+<Point X="480" Y="112"/>
 </PointGeometry>
 <LabelGeometry Anchor="NW">
-<Point X="5" Y="5"/>
+<Point X="-9" Y="11"/>
 </LabelGeometry>
 </SimpleNode>
 </NodeList>
 <EdgeList>
-<Edge Source="q0" Target="q3">
+<Edge Source="q0" Target="q17">
 <LabelBlock>
-<SimpleIdentifier Name="botaoPressionado_ns"/>
+<SimpleIdentifier Name="bP_ns"/>
 <LabelGeometry Anchor="NW">
-<Point X="0" Y="10"/>
+<Point X="17" Y="8"/>
 </LabelGeometry>
 </LabelBlock>
 <SplineGeometry>
-<Point X="71" Y="137"/>
+<Point X="73" Y="277"/>
 </SplineGeometry>
 </Edge>
-<Edge Source="q0" Target="q7">
+<Edge Source="q0" Target="q27">
 <LabelBlock>
-<SimpleIdentifier Name="tempVerdeExpirado_ns"/>
+<SimpleIdentifier Name="tGE_ns"/>
 <LabelGeometry Anchor="NW">
-<Point X="0" Y="10"/>
+<Point X="-53" Y="-8"/>
 </LabelGeometry>
 </LabelBlock>
 <SplineGeometry>
-<Point X="112" Y="110"/>
+<Point X="34" Y="288"/>
 </SplineGeometry>
 </Edge>
 <Edge Source="q1" Target="q2">
 <LabelBlock>
-<SimpleIdentifier Name="tempAmareloExpirado_lo"/>
+<SimpleIdentifier Name="tYE_lo"/>
 <LabelGeometry Anchor="NW">
 <Point X="0" Y="10"/>
 </LabelGeometry>
 </LabelBlock>
 <SplineGeometry>
-<Point X="236" Y="418"/>
+<Point X="472" Y="565"/>
 </SplineGeometry>
 </Edge>
 <Edge Source="q10" Target="q12">
 <LabelBlock>
-<SimpleIdentifier Name="tempAmareloExpirado_lo"/>
+<SimpleIdentifier Name="tSE_lo"/>
 <LabelGeometry Anchor="NW">
-<Point X="0" Y="10"/>
+<Point X="31" Y="8"/>
 </LabelGeometry>
 </LabelBlock>
 <SplineGeometry>
-<Point X="85" Y="419"/>
+<Point X="589" Y="122"/>
 </SplineGeometry>
 </Edge>
-<Edge Source="q11" Target="q1">
+<Edge Source="q11" Target="q16">
 <LabelBlock>
-<SimpleIdentifier Name="botaoPressionado_lo"/>
+<SimpleIdentifier Name="tRE_ns"/>
 <LabelGeometry Anchor="NW">
-<Point X="0" Y="10"/>
+<Point X="-16" Y="-36"/>
 </LabelGeometry>
 </LabelBlock>
 <SplineGeometry>
-<Point X="257" Y="371"/>
+<Point X="575" Y="100"/>
 </SplineGeometry>
 </Edge>
-<Edge Source="q11" Target="q10">
+<Edge Source="q12" Target="q14">
 <LabelBlock>
-<SimpleIdentifier Name="tempVerdeExpirado_lo"/>
+<SimpleIdentifier Name="tRE_lo"/>
 <LabelGeometry Anchor="NW">
-<Point X="0" Y="10"/>
+<Point X="-7" Y="-47"/>
 </LabelGeometry>
 </LabelBlock>
 <SplineGeometry>
-<Point X="180" Y="376"/>
+<Point X="719" Y="228"/>
 </SplineGeometry>
 </Edge>
-<Edge Source="q12" Target="q6">
+<Edge Source="q13" Target="q15">
 <LabelBlock>
-<SimpleIdentifier Name="tempSegurancaExpirado_lo"/>
+<SimpleIdentifier Name="tYE_ns"/>
+<LabelGeometry Anchor="NW">
+<Point X="4" Y="0"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="642" Y="336"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="q14" Target="q13">
+<LabelBlock>
+<SimpleIdentifier Name="tGE_ns"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+</Edge>
+<Edge Source="q14" Target="q3">
+<LabelBlock>
+<SimpleIdentifier Name="bP_ns"/>
 <LabelGeometry Anchor="NW">
 <Point X="0" Y="10"/>
 </LabelGeometry>
 </LabelBlock>
 <SplineGeometry>
-<Point X="63" Y="369"/>
+<Point X="708" Y="442"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="q15" Target="q11">
+<LabelBlock>
+<SimpleIdentifier Name="tSE_ns"/>
+<LabelGeometry Anchor="NW">
+<Point X="11" Y="-3"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="640" Y="234"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="q16" Target="q30">
+<LabelBlock>
+<SimpleIdentifier Name="tGE_lo"/>
+<LabelGeometry Anchor="NW">
+<Point X="-4" Y="-24"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="425" Y="24"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="q17" Target="q18">
+<LabelBlock>
+<SimpleIdentifier Name="tYE_ns"/>
+<LabelGeometry Anchor="NW">
+<Point X="14" Y="-2"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="113" Y="400"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="q18" Target="q19">
+<LabelBlock>
+<SimpleIdentifier Name="tSE_ns"/>
+<LabelGeometry Anchor="NW">
+<Point X="6" Y="-15"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="187" Y="524"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="q19" Target="q23">
+<LabelBlock>
+<SimpleIdentifier Name="tRE_ns"/>
+<LabelGeometry Anchor="NW">
+<Point X="6" Y="-30"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="308" Y="596"/>
 </SplineGeometry>
 </Edge>
 <Edge Source="q2" Target="q6">
 <LabelBlock>
-<SimpleIdentifier Name="tempSegurancaExpirado_lo"/>
+<SimpleIdentifier Name="tSE_lo"/>
 <LabelGeometry Anchor="NW">
 <Point X="0" Y="10"/>
 </LabelGeometry>
 </LabelBlock>
 <SplineGeometry>
-<Point X="140" Y="373"/>
+<Point X="534" Y="527"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="q20" Target="q21">
+<LabelBlock>
+<SimpleIdentifier Name="tRE_lo"/>
+<LabelGeometry Anchor="NW">
+<Point X="-34" Y="14"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="89" Y="548"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="q21" Target="q27">
+<LabelBlock>
+<SimpleIdentifier Name="tGE_ns"/>
+<LabelGeometry Anchor="NW">
+<Point X="-49" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="43" Y="443"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="q22" Target="q24">
+<LabelBlock>
+<SimpleIdentifier Name="tYE_lo"/>
+<LabelGeometry Anchor="NW">
+<Point X="-22" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="303" Y="686"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="q23" Target="q1">
+<LabelBlock>
+<SimpleIdentifier Name="bP_lo"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="404" Y="596"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="q23" Target="q22">
+<LabelBlock>
+<SimpleIdentifier Name="tGE_lo"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+</Edge>
+<Edge Source="q24" Target="q20">
+<LabelBlock>
+<SimpleIdentifier Name="tSE_lo"/>
+<LabelGeometry Anchor="NW">
+<Point X="-27" Y="9"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="180" Y="637"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="q25" Target="q31">
+<LabelBlock>
+<SimpleIdentifier Name="tRE_ns"/>
+<LabelGeometry Anchor="NW">
+<Point X="-6" Y="9"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="300" Y="83"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="q26" Target="q0">
+<LabelBlock>
+<SimpleIdentifier Name="tRE_lo"/>
+<LabelGeometry Anchor="NW">
+<Point X="-38" Y="-25"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="93" Y="164"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="q27" Target="q29">
+<LabelBlock>
+<SimpleIdentifier Name="tYE_ns"/>
+<LabelGeometry Anchor="NW">
+<Point X="32" Y="-37"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="61" Y="289"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="q29" Target="q25">
+<LabelBlock>
+<SimpleIdentifier Name="tSE_ns"/>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="179" Y="147"/>
 </SplineGeometry>
 </Edge>
 <Edge Source="q3" Target="q4">
 <LabelBlock>
-<SimpleIdentifier Name="tempAmareloExpirado_ns"/>
+<SimpleIdentifier Name="tYE_ns"/>
 <LabelGeometry Anchor="NW">
-<Point X="0" Y="10"/>
+<Point X="4" Y="5"/>
 </LabelGeometry>
 </LabelBlock>
 <SplineGeometry>
-<Point X="113" Y="119"/>
+<Point X="659" Y="539"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="q30" Target="q32">
+<LabelBlock>
+<SimpleIdentifier Name="tYE_lo"/>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="-31"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="283" Y="32"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="q31" Target="q30">
+<LabelBlock>
+<SimpleIdentifier Name="tGE_lo"/>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="-7"/>
+</LabelGeometry>
+</LabelBlock>
+</Edge>
+<Edge Source="q31" Target="q9">
+<LabelBlock>
+<SimpleIdentifier Name="bP_lo"/>
+<LabelGeometry Anchor="NW">
+<Point X="-5" Y="-21"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="427" Y="92"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="q32" Target="q26">
+<LabelBlock>
+<SimpleIdentifier Name="tSE_lo"/>
+<LabelGeometry Anchor="NW">
+<Point X="-34" Y="-28"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="164" Y="92"/>
 </SplineGeometry>
 </Edge>
 <Edge Source="q4" Target="q5">
 <LabelBlock>
-<SimpleIdentifier Name="tempSegurancaExpirado_ns"/>
+<SimpleIdentifier Name="tSE_ns"/>
 <LabelGeometry Anchor="NW">
-<Point X="0" Y="10"/>
+<Point X="-2" Y="5"/>
 </LabelGeometry>
 </LabelBlock>
 <SplineGeometry>
-<Point X="197" Y="157"/>
+<Point X="587" Y="612"/>
 </SplineGeometry>
 </Edge>
-<Edge Source="q5" Target="q11">
+<Edge Source="q5" Target="q8">
 <LabelBlock>
-<SimpleIdentifier Name="tempVermelhoExpirado_ns"/>
+<SimpleIdentifier Name="tRE_ns"/>
 <LabelGeometry Anchor="NW">
-<Point X="0" Y="10"/>
+<Point X="-6" Y="7"/>
 </LabelGeometry>
 </LabelBlock>
 <SplineGeometry>
-<Point X="240" Y="256"/>
+<Point X="506" Y="659"/>
 </SplineGeometry>
 </Edge>
-<Edge Source="q6" Target="q0">
+<Edge Source="q6" Target="q7">
 <LabelBlock>
-<SimpleIdentifier Name="tempVermelhoExpirado_lo"/>
+<SimpleIdentifier Name="tRE_lo"/>
 <LabelGeometry Anchor="NW">
 <Point X="0" Y="10"/>
 </LabelGeometry>
 </LabelBlock>
 <SplineGeometry>
-<Point X="74" Y="250"/>
+<Point X="585" Y="474"/>
 </SplineGeometry>
 </Edge>
-<Edge Source="q7" Target="q9">
+<Edge Source="q7" Target="q13">
 <LabelBlock>
-<SimpleIdentifier Name="tempAmareloExpirado_ns"/>
+<SimpleIdentifier Name="tGE_ns"/>
 <LabelGeometry Anchor="NW">
 <Point X="0" Y="10"/>
 </LabelGeometry>
 </LabelBlock>
 <SplineGeometry>
-<Point X="201" Y="61"/>
+<Point X="626" Y="416"/>
 </SplineGeometry>
 </Edge>
-<Edge Source="q9" Target="q5">
+<Edge Source="q8" Target="q22">
 <LabelBlock>
-<SimpleIdentifier Name="tempSegurancaExpirado_ns"/>
+<SimpleIdentifier Name="tGE_lo"/>
 <LabelGeometry Anchor="NW">
-<Point X="0" Y="10"/>
+<Point X="-14" Y="6"/>
 </LabelGeometry>
 </LabelBlock>
 <SplineGeometry>
-<Point X="246" Y="127"/>
+<Point X="418" Y="684"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="q9" Target="q10">
+<LabelBlock>
+<SimpleIdentifier Name="tYE_lo"/>
+<LabelGeometry Anchor="NW">
+<Point X="4" Y="-22"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="506" Y="134"/>
 </SplineGeometry>
 </Edge>
 </EdgeList>
