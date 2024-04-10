@@ -547,7 +547,7 @@
 <IntConstant Value="1"/>
 </VariableMarking>
 </VariableComponent>
-<SimpleComponent Kind="SUPERVISOR" Name="sup(cicloCompleto_lo||cicloCompleto_ns||pedestre_lo||pedestre_ns||semaforo_lo||semaforo_ns||temporizador)">
+<SimpleComponent Kind="SUPERVISOR" Name="supervisor">
 <Graph>
 <NodeList>
 <SimpleNode Initial="true" Name="q0">
