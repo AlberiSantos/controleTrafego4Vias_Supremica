@@ -128,10 +128,10 @@ A seguir serão descritos os comportamentos dos autômatos dos semáforos do tr�
 
 | Estado | Descrição |
 | --- | --- |
-| tempVerd_ns(Estado Inicial) | Indica que o sinal está verde para o trafégo de carros da via Norte-Sul. |
-| tempAmarelo_ns | Indica que o sinal está amarelo para o trafégo de carros da via Norte-Sul. |
-| tempSeguranca_ns | Indica que o sinal está prestes a ficar vermelho para o trafégo de carros da via Norte-Sul. |
-| tempVermelho_ns | Indica que o sinal está vermelho para o trafégo de carros da via Norte-Sul. |
+| tempVerd_ns(Estado Inicial) | Indica que o temporizador verde da via Norte-Sul está contando. |
+| tempAmarelo_ns | Indica que o temporizador amarelo da via Norte-Sul está contando. |
+| tempSeguranca_ns | Indica que o temporizador de segurança da via Norte-Sul está contando. |
+| tempVermelho_ns | Indica que o temporizador vermelho da via Norte-Sul está contando. |
 
 A mesma descrição dos estados terminados em “lo” pode ser feita de acordo com a tabela acima.
 
