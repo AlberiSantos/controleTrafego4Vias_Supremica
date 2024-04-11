@@ -106,16 +106,18 @@ A seguir serão descritos os comportamentos dos autômatos dos semáforos do tr�
 | tRE_lo | Indica que o tempo em que o sinal Leste-Oeste pode permanecer vermelho expirou |
 | bP_ns | Indica que um pedestre apertou o botão solicitando atravessar a via Norte-Sul e este é um evento não-controlado. |
 
-### **Autômato Temporizador**
-
-- **temporizador**: Este autômato é do tipo planta e simula o controle de tempo em que cada estado dos semáforos pode permanecer ativo.
-
 **Comportamento Esperado**
 
 - Enquanto o semáforo de carros estiver verde o sinal de pedestres permanece no sinal **vermelho**.
 - Quando ocorre o **tSE_ns** significa que o sinal de carros está vermelho portanto os pedestres da via podem atravessar.
 - Quando ocorre **tRE_lo** o semáforo de carro está prestes a ficar verde novamente, logo o sinal de pedestres deve ser fechado.
 - Quando ocorre **bP_ns**, o pedestre vai para um estado de espera até que seja seguro atravessar novamente.
+
+
+### **Autômato Temporizador**
+
+- **temporizador**: Este autômato é do tipo planta e simula o controle de tempo em que cada estado dos semáforos pode permanecer ativo.
+
 <p align="center">
   <img src="imgs/temporizador.png" alt="temporizador" width="50%" height="50%">
   <br>
