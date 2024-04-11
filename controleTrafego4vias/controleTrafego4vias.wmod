@@ -362,6 +362,9 @@
 <Point X="-22" Y="-38"/>
 </LabelGeometry>
 </LabelBlock>
+<SplineGeometry>
+<Point X="226" Y="77"/>
+</SplineGeometry>
 </Edge>
 <Edge Source="sinalAmareloCar" Target="sinalVermelhoCar">
 <LabelBlock>
